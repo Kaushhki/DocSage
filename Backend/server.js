@@ -101,10 +101,8 @@ async function callGroq(systemPrompt, userContent, retries = 3) {
   return data.choices[0].message.content;
 }
 
-// ---------- Routes ----------
 
-// Upload + parse a PDF, extract raw text. Used by the frontend as a
-// fallback / alternative to client-side pdf.js extraction.
+
 app.post("/api/analyze", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) {
