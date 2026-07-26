@@ -23,7 +23,7 @@ const upload = multer({ dest: "uploads/" });
 
 const documentStore = new Map();
 
-// ---------- Helpers ----------
+
 
 function chunkText(text, chunkSize = 3000) {
   const chunks = [];
