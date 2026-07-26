@@ -33,9 +33,8 @@ function chunkText(text, chunkSize = 3000) {
   return chunks;
 }
 
-// Very simple keyword-overlap scorer used to find which chunks are most
-// relevant to a given question, so we only send a handful of chunks to
-// Groq instead of the entire document every time.
+
+
 function scoreChunk(chunk, queryWords) {
   const chunkLower = chunk.toLowerCase();
   let score = 0;
