@@ -120,15 +120,15 @@ app.post("/api/analyze", upload.single("file"), async (req, res) => {
     console.error("Analyze error:", error);
     res.status(500).json({ error: error.message });
   } finally {
-    // Clean up the temp uploaded file regardless of success/failure
+   
     if (req.file) {
       fs.unlink(req.file.path, () => {});
     }
   }
 });
 
-// Index a document's extracted text into the in-memory chunk store.
-// This is instant (no AI calls) — just splits text.
+
+
 app.post("/api/index", (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ error: "No text provided" });
@@ -141,9 +141,8 @@ app.post("/api/index", (req, res) => {
   res.json({ docId, numChunks: chunks.length });
 });
 
-// Answer a question about an already-indexed document. Only pulls the
-// most relevant few chunks instead of sending the whole document, so
-// this stays fast and well within Groq's rate limits.
+
+
 app.post("/api/chat", async (req, res) => {
   const { query, docId } = req.body;
 
