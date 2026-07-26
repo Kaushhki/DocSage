@@ -19,10 +19,8 @@ app.use(express.json({ limit: "50mb" }));
 
 const upload = multer({ dest: "uploads/" });
 
-// ---------- In-memory document store ----------
-// Maps docId -> array of text chunks. Resets when the server restarts.
-// (For a real deployment you'd swap this for a database, but this is
-// perfectly fine for a student project / demo.)
+
+
 const documentStore = new Map();
 
 // ---------- Helpers ----------
