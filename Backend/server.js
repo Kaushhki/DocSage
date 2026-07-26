@@ -60,8 +60,8 @@ function getRelevantChunks(docId, query, topK = 5) {
 
   scored.sort((a, b) => b.score - a.score);
 
-  // Fallback: if nothing scored (e.g. very generic question), just return
-  // the first few chunks rather than nothing at all.
+ 
+
   const top = scored.filter(s => s.score > 0).slice(0, topK);
   if (top.length === 0) {
     return chunks.slice(0, topK);
