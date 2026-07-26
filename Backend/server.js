@@ -69,8 +69,8 @@ function getRelevantChunks(docId, query, topK = 5) {
   return top.map(s => s.chunk);
 }
 
-// Calls Groq's chat completions endpoint, with automatic retry on
-// rate-limit errors (waits and tries again a few times before giving up).
+
+
 async function callGroq(systemPrompt, userContent, retries = 3) {
   const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
